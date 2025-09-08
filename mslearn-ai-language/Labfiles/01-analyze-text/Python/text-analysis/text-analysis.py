@@ -9,13 +9,14 @@ from azure.ai.textanalytics import TextAnalyticsClient
 def main():
     try:
         # Get Configuration Settings
-        load_dotenv()
+        load_dotenv("Copyenv")
         ai_endpoint = os.getenv('AI_SERVICE_ENDPOINT')
         ai_key = os.getenv('AI_SERVICE_KEY')
-
+        Team = os.getenv('FOOTBALL')
+        print(Team)
         # Create client using endpoint and key
-credential = AzureKeyCredential(ai_key)
-ai_client = TextAnalyticsClient(endpoint=ai_endpoint, credential=credential)
+        keyobject = AzureKeyCredential(ai_key)
+        ai_client = TextAnalyticsClient(endpoint=ai_endpoint, credential=keyobject)
 
 
         # Analyze each text file in the reviews folder
